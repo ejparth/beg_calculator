@@ -19,17 +19,29 @@ operations = {
   "-": sub,
 }
 
-first_number = int(input("Tell me the first number"))
+flag = False
 
 for operator in operations:
   print(operator)
-
+  
+first_number = int(input("Tell me the first number"))
 operator = input("What operation you want from the list?")
-
 second_number = int(input("Tell me the second number"))
-
 operation_functon = operations[operator]
+final_number = operation_functon(first_number,second_number)
+print (f"first number {first_number} and second number{second_number} and final output is {final_number}")
 
-number = operation_functon(first_number,second_number)
+while not flag:
+  user_choice = input("Do you want further calculations on the previous O/p yes or No?").lower()
+  if user_choice == "yes":
+    operator = input("What operation you want from the list?")
+    number3 = int(input("Tell me the second number"))
+    operation_function = operations[operator]
+    final_number = operation_function(final_number,number3)
+    print(final_number)
+  
+  else:
+    flag = True
+  
+  
 
-print (f"first number {first_number} and second number{second_number} and final output is {number}")
